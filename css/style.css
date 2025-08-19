@@ -13,28 +13,25 @@ body {
     align-items: center;
     justify-content: center;
     background-color: black;
-    position: relative; /* Ensure compatibility with flower animations */
-    overflow: hidden; /* Prevent scrollbars from flower animations */
+    position: relative;
+    overflow: hidden;
 }
 
 .greetings {
     font-size: 6rem;
     font-weight: 900;
     text-align: center;
-    display: flex;
-    flex-direction: column; /* Stack "HALOO" and "RAHMANIAYU" vertically */
-    align-items: center;
 }
 
-.greetings > span {
-    display: inline; /* Ensure spans stay inline within each line */
+.greetings .word {
+    display: block; /* Menempatkan "HALOO" dan "RAHMANIAYU" di baris terpisah */
+    white-space: nowrap; /* Menjaga huruf-huruf dalam setiap kata tetap horizontal */
+}
+
+.greetings .word > span {
+    display: inline; /* Menjaga huruf-huruf dalam kata tetap berdampingan */
     animation: glow 5.5s ease-in-out infinite;
     -webkit-animation: glow 3.3s ease-in-out infinite;
-}
-
-/* Ensure spans don't wrap unnecessarily */
-.greetings > span {
-    white-space: nowrap; /* Prevent individual letters from wrapping */
 }
 
 @keyframes glow {
@@ -48,22 +45,22 @@ body {
     }
 }
 
-/* Animation delays for each span */
-.greetings > span:nth-child(2) { animation-delay: .2s; }
-.greetings > span:nth-child(3) { animation-delay: .4s; }
-.greetings > span:nth-child(4) { animation-delay: .6s; }
-.greetings > span:nth-child(5) { animation-delay: .8s; }
-.greetings > span:nth-child(6) { animation-delay: 1s; }
-.greetings > span:nth-child(7) { animation-delay: 1.2s; }
-.greetings > span:nth-child(8) { animation-delay: 1.4s; }
-.greetings > span:nth-child(9) { animation-delay: 1.6s; }
-.greetings > span:nth-child(10) { animation-delay: 1.8s; }
-.greetings > span:nth-child(11) { animation-delay: 2s; }
-.greetings > span:nth-child(12) { animation-delay: 2.2s; }
-.greetings > span:nth-child(13) { animation-delay: 2.4s; }
-.greetings > span:nth-child(14) { animation-delay: 2.6s; }
-.greetings > span:nth-child(15) { animation-delay: 2.8s; }
-.greetings > span:nth-child(16) { animation-delay: 3s; }
+/* Delay animasi untuk setiap huruf */
+.greetings .word > span:nth-child(2) { animation-delay: .2s; }
+.greetings .word > span:nth-child(3) { animation-delay: .4s; }
+.greetings .word > span:nth-child(4) { animation-delay: .6s; }
+.greetings .word > span:nth-child(5) { animation-delay: .8s; }
+.greetings .word > span:nth-child(6) { animation-delay: 1s; }
+.greetings .word > span:nth-child(7) { animation-delay: 1.2s; }
+.greetings .word > span:nth-child(8) { animation-delay: 1.4s; }
+.greetings .word > span:nth-child(9) { animation-delay: 1.6s; }
+.greetings .word > span:nth-child(10) { animation-delay: 1.8s; }
+.greetings .word > span:nth-child(11) { animation-delay: 2s; }
+.greetings .word > span:nth-child(12) { animation-delay: 2.2s; }
+.greetings .word > span:nth-child(13) { animation-delay: 2.4s; }
+.greetings .word > span:nth-child(14) { animation-delay: 2.6s; }
+.greetings .word > span:nth-child(15) { animation-delay: 2.8s; }
+.greetings .word > span:nth-child(16) { animation-delay: 3s; }
 
 .description {
     font-size: 1.5rem;
@@ -77,12 +74,10 @@ body {
     color: #111;
 }
 
-/* Media query for iPhone-sized screens (e.g., 375px–414px) */
+/* Media query untuk layar iPhone (e.g., 375px–414px) */
 @media screen and (max-width: 414px) {
     .greetings {
-        font-size: 5vw; /* Smaller font size for iPhone screens */
-        font-weight: 700; /* Lighter weight for better fit */
-        line-height: 1.2; /* Adjust line spacing */
+        font-size: 5vw; /* Ukuran font yang disesuaikan dengan lebar layar */
     }
 
     .description {
