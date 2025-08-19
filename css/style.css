@@ -13,18 +13,28 @@ body {
     align-items: center;
     justify-content: center;
     background-color: black;
+    position: relative; /* Ensure compatibility with flower animations */
+    overflow: hidden; /* Prevent scrollbars from flower animations */
 }
 
 .greetings {
     font-size: 6rem;
-    font-weight: 1800;
+    font-weight: 900;
     text-align: center;
-    white-space: nowrap; /* Prevent text from wrapping */
+    display: flex;
+    flex-direction: column; /* Stack "HALOO" and "RAHMANIAYU" vertically */
+    align-items: center;
 }
 
 .greetings > span {
+    display: inline; /* Ensure spans stay inline within each line */
     animation: glow 5.5s ease-in-out infinite;
     -webkit-animation: glow 3.3s ease-in-out infinite;
+}
+
+/* Ensure spans don't wrap unnecessarily */
+.greetings > span {
+    white-space: nowrap; /* Prevent individual letters from wrapping */
 }
 
 @keyframes glow {
@@ -70,25 +80,16 @@ body {
 /* Media query for iPhone-sized screens (e.g., 375px–414px) */
 @media screen and (max-width: 414px) {
     .greetings {
-        font-size: 8vw; /* Use viewport units for dynamic scaling */
-        font-weight: 900; /* Slightly lighter for better rendering */
-        white-space: nowrap; /* Ensure no wrapping */
+        font-size: 5vw; /* Smaller font size for iPhone screens */
+        font-weight: 700; /* Lighter weight for better fit */
         line-height: 1.2; /* Adjust line spacing */
-        display: flex;
-        flex-direction: column; /* Stack HALOO and RAHMANIAYU vertically */
-        align-items: center; /* Center text */
-    }
-
-    /* Optional: Adjust individual spans for better spacing */
-    .greetings > span {
-        display: inline-block; /* Ensure spans align properly */
     }
 
     .description {
-        font-size: 0.9rem; /* Smaller font for description */
+        font-size: 0.9rem;
     }
 
     .button a {
-        font-size: 0.7rem; /* Adjust button text size */
+        font-size: 0.7rem;
     }
 }
